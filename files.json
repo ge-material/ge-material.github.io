@@ -1,16 +1,8 @@
 [
   {
-    "name": "Die Biene und die Blume",
-    "url": "files/geschichte_biene.pdf",
-    "themen": ["Freundlichkeit", "Eintracht"],
-    "kategorien": ["Bienchen", "Geschichte", "PDF"],
-    "info": "PDF Datei"
-  },
-  {
-    "name": "Lied: Edelsteine",
-    "url": "files/lied_edelsteine.mp3",
-    "themen": ["Wahrhaftigkeit", "Selbstvertrauen"],
-    "kategorien": ["Musik", "Audio"],
-    "info": "MP3 Datei"
+    "name": "kein Herz verletzen",
+    "url": "files/Kein Herz verletzen.pdf",
+    "themen": ["Mitgefühl", "Ein Herz wurde verletzt"],
+    "kategorien": ["Lied"]
   }
 ]
