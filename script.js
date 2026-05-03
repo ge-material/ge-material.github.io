@@ -50,6 +50,7 @@ function setFilter(type, value) {
 }
 
 function applyFilters() {
+    // Filtern der Dateien
     const filtered = allFiles.filter(f => {
         const matchTheme = (activeTheme === 'all' || (f.themen || []).includes(activeTheme));
         const matchKat = (activeKategorie === 'all' || (f.kategorien || []).includes(activeKategorie));
@@ -58,6 +59,36 @@ function applyFilters() {
 
     renderFiles(filtered);
     updateActiveStyles();
+    renderFilterChips();
+}
+
+function renderFilterChips() {
+    const statusText = document.getElementById('filter-status-text');
+    const chipsContainer = document.getElementById('active-chips');
+    
+    chipsContainer.innerHTML = '';
+
+    if (activeTheme === 'all' && activeKategorie === 'all') {
+        statusText.textContent = "Alle Materialien werden angezeigt";
+    } else {
+        statusText.textContent = "Aktive Filter (klicken zum Entfernen):";
+        
+        if (activeTheme !== 'all') {
+            const chip = document.createElement('div');
+            chip.className = 'filter-chip';
+            chip.innerHTML = `Thema: ${activeTheme} <span class="close-icon">×</span>`;
+            chip.onclick = () => setFilter('theme', 'all');
+            chipsContainer.appendChild(chip);
+        }
+
+        if (activeKategorie !== 'all') {
+            const chip = document.createElement('div');
+            chip.className = 'filter-chip';
+            chip.innerHTML = `Kategorie: ${activeKategorie} <span class="close-icon">×</span>`;
+            chip.onclick = () => setFilter('kat', 'all');
+            chipsContainer.appendChild(chip);
+        }
+    }
 }
 
 function updateActiveStyles() {
