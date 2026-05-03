@@ -8,20 +8,17 @@ body {
 
 header {
     background-color: #ffffff;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
     border-bottom: 1px solid #e2e8f0;
 }
 
+/* Titel: Kleiner und in Grau */
 header h1 {
     margin: 0;
-    color: #1a202c;
-    font-size: 1.8rem;
-}
-
-.subtitle {
-    color: #718096;
-    margin-top: 8px;
+    color: #555555; 
+    font-size: 1.4rem; 
+    font-weight: 600;
 }
 
 .layout {
@@ -37,9 +34,10 @@ header h1 {
     flex-shrink: 0;
 }
 
+/* Überschriften: Korrekte Groß-/Kleinschreibung */
 .sidebar h3 {
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    font-size: 1.1rem;
+    text-transform: none; /* Deaktiviert reine Großbuchstaben */
     color: #4a5568;
     border-bottom: 2px solid #3498db;
     padding-bottom: 8px;
@@ -69,15 +67,52 @@ header h1 {
     border-color: #2980b9;
 }
 
-#active-filter-info {
+/* Bereich für aktive Filter-Chips */
+#active-filter-area {
     margin-bottom: 20px;
-    padding: 12px;
+    padding: 15px;
     background: #fff;
     border-radius: 8px;
-    font-size: 0.9rem;
     border: 1px solid #edf2f7;
+    min-height: 30px;
 }
 
+#filter-status-text {
+    font-size: 0.9rem;
+    color: #718096;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#active-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    background-color: #e2e8f0;
+    color: #2d3748;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter-chip:hover {
+    background-color: #cbd5e0;
+}
+
+.filter-chip .close-icon {
+    margin-left: 8px;
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+/* Karten & Grid */
 #content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -102,6 +137,7 @@ header h1 {
     padding: 2px 8px;
     border-radius: 4px;
     margin-right: 5px;
+    margin-bottom: 5px;
     display: inline-block;
 }
 
