@@ -18,7 +18,6 @@ async function initApp() {
 function renderNav() {
     const themeCloud = document.getElementById('theme-cloud');
     const tagCloud = document.getElementById('tag-cloud');
-
     const themen = [...new Set(allFiles.flatMap(f => f.themen || []))].sort();
     const kategorien = [...new Set(allFiles.flatMap(f => f.kategorien || []))].sort();
 
@@ -50,13 +49,11 @@ function setFilter(type, value) {
 }
 
 function applyFilters() {
-    // Filtern der Dateien
     const filtered = allFiles.filter(f => {
         const matchTheme = (activeTheme === 'all' || (f.themen || []).includes(activeTheme));
         const matchKat = (activeKategorie === 'all' || (f.kategorien || []).includes(activeKategorie));
         return matchTheme && matchKat;
     });
-
     renderFiles(filtered);
     updateActiveStyles();
     renderFilterChips();
@@ -65,14 +62,12 @@ function applyFilters() {
 function renderFilterChips() {
     const statusText = document.getElementById('filter-status-text');
     const chipsContainer = document.getElementById('active-chips');
-    
     chipsContainer.innerHTML = '';
 
     if (activeTheme === 'all' && activeKategorie === 'all') {
         statusText.textContent = "Alle Materialien werden angezeigt";
     } else {
         statusText.textContent = "Aktive Filter (klicken zum Entfernen):";
-        
         if (activeTheme !== 'all') {
             const chip = document.createElement('div');
             chip.className = 'filter-chip';
@@ -80,7 +75,6 @@ function renderFilterChips() {
             chip.onclick = () => setFilter('theme', 'all');
             chipsContainer.appendChild(chip);
         }
-
         if (activeKategorie !== 'all') {
             const chip = document.createElement('div');
             chip.className = 'filter-chip';
@@ -99,6 +93,29 @@ function updateActiveStyles() {
     if (document.getElementById(kId)) document.getElementById(kId).classList.add('active');
 }
 
+// LOGIK FÜR AUTOMATISCHE VORSCHAU AUS DEM "PREVIEW" ORDNER
+function getPreviewHTML(file) {
+    // Extrahiere den Dateinamen ohne Endung (z.B. "geschichte" aus "files/geschichte.pdf")
+    const fileNameWithExt = file.url.split('/').pop();
+    const fileName = fileNameWithExt.substring(0, fileNameWithExt.lastIndexOf('.'));
+    const previewUrl = `preview/${fileName}.jpg`;
+    const ext = fileNameWithExt.split('.').pop().toLowerCase();
+
+    // Trick: Wir laden ein Bild und nutzen 'onerror', um den Bereich zu verstecken, falls kein JPG existiert
+    let previewElement = `<div class="card-preview" id="preview-box-${fileName}">
+                            <img src="${previewUrl}" alt="Vorschau" onerror="this.parentElement.style.display='none'">
+                          </div>`;
+
+    // Bei Audio-Dateien laden wir trotzdem zusätzlich den Player, falls gewünscht
+    if (['mp3', 'wav', 'ogg'].includes(ext)) {
+        return `<div class="card-preview audio-box">
+                    <audio controls><source src="${file.url}" type="audio/${ext}"></audio>
+                </div>`;
+    }
+
+    return previewElement;
+}
+
 function renderFiles(files) {
     const grid = document.getElementById('content-grid');
     grid.innerHTML = files.length ? '' : '<p>Kein Material gefunden.</p>';
@@ -107,10 +124,16 @@ function renderFiles(files) {
         const card = document.createElement('div');
         card.className = 'file-card';
         card.innerHTML = `
-            <h3>${file.name}</h3>
-            <div class="theme-list">${(file.themen || []).map(t => `<span class="theme-label">${t}</span>`).join('')}</div>
-            <div class="card-tags">${(file.kategorien || []).map(k => `<span class="mini-tag">#${k}</span>`).join('')}</div>
-            <a href="${file.url}" download class="download-btn">Download</a>
+            ${getPreviewHTML(file)}
+            <div class="card-content">
+                <h3>${file.name}</h3>
+                <div class="theme-list">${(file.themen || []).map(t => `<span class="theme-label">${t}</span>`).join('')}</div>
+                <div class="card-tags">${(file.kategorien || []).map(k => `<span class="mini-tag">#${k}</span>`).join('')}</div>
+                <div class="action-buttons">
+                    <a href="${file.url}" target="_blank" class="preview-btn">Ansehen</a>
+                    <a href="${file.url}" download class="download-btn">Download</a>
+                </div>
+            </div>
         `;
         grid.appendChild(card);
     });
