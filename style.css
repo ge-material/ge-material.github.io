@@ -24,7 +24,8 @@ header h1 {
 .layout {
     display: flex;
     max-width: 1200px;
-    margin: 30px auto;
+    //margin: 30px auto;
+    margin: auto;
     gap: 40px;
     padding: 0 20px;
 }
