@@ -116,12 +116,14 @@ header h1 {
 #content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    //gap: 20px;
+    gap: 10px;
 }
 
 .file-card {
     background: #ffffff;
-    padding: 20px;
+    //padding: 20px;
+    padding: 5px;
     border-radius: 12px;
     border: 1px solid #edf2f7;
     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
@@ -142,7 +144,7 @@ header h1 {
 }
 
 .mini-tag {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: #718096;
     margin-right: 5px;
 }
