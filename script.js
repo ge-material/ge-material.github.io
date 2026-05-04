@@ -1,197 +1,110 @@
-let allFiles = []; 
-let activeTheme = 'all';
-let activeKategorie = 'all';
+let allFiles = [];
+let activeTheme = null;
+let activeCategory = null;
 
-// Startet die App automatisch beim Laden der Seite
-window.onload = initApp;
+// E-Mail-Schutz: Adresse erst beim Laden zusammensetzen
+function injectEmail() {
+    const user = "kontakt";       // HIER DEINEN NUTZERNAMEN EINTRAGEN
+    const domain = "ge-material"; // HIER DEINE DOMAIN EINTRAGEN
+    const tld = "at";             // HIER DEINE ENDUNG EINTRAGEN
+    
+    const email = user + "@" + domain + "." + tld;
+    const container = document.getElementById('email-placeholder');
+    
+    if (container) {
+        const a = document.createElement('a');
+        a.href = "mailto:" + email;
+        a.textContent = email;
+        a.style.fontWeight = "bold";
+        container.appendChild(a);
+    }
+}
 
-async function initApp() {
-    const grid = document.getElementById('content-grid');
+async function loadData() {
     try {
-		const response = await fetch('files.json?v=' + Date.now());
-        
-        if (!response.ok) {
-            grid.innerHTML = `<p style="color:red">Fehler: files.json wurde nicht gefunden.</p>`;
-            return;
-        }
-
+        // Cache-Buster sorgt dafür, dass die JSON immer frisch geladen wird
+        const response = await fetch('files.json?v=' + Date.now());
         allFiles = await response.json();
-        
-        renderNav();
-        applyFilters(); 
-    } catch (error) {
-        console.error("Script-Fehler:", error);
-        grid.innerHTML = `<p style="color:red">Kritischer Fehler beim Laden der Daten.</p>`;
+        renderFilters();
+        renderFiles(allFiles);
+    } catch (e) {
+        console.error("JSON konnte nicht geladen werden:", e);
     }
 }
 
-/**
- * Erstellt die Navigations-Bubbles in der Sidebar
- */
-function renderNav() {
-    const themeCloud = document.getElementById('theme-cloud');
-    const tagCloud = document.getElementById('tag-cloud');
+function renderFilters() {
+    const themes = [...new Set(allFiles.flatMap(f => f.themen || []))].sort();
+    const categories = [...new Set(allFiles.flatMap(f => f.kategorien || []))].sort();
 
-    if (!themeCloud || !tagCloud) return;
-
-    // Eindeutige Themen und Kategorien sammeln
-    const themen = [...new Set(allFiles.flatMap(f => f.themen || []))].sort();
-    const kategorien = [...new Set(allFiles.flatMap(f => f.kategorien || []))].sort();
-
-    // Themen-Cloud
-    themeCloud.innerHTML = '<span class="tag-badge" id="theme-all" onclick="setFilter(\'theme\', \'all\')">Alle anzeigen</span>';
-    themen.forEach(t => {
-        const span = document.createElement('span');
-        span.className = 'tag-badge';
-        span.id = `theme-${t}`;
-        span.textContent = t;
-        span.onclick = () => setFilter('theme', t);
-        themeCloud.appendChild(span);
-    });
-
-    // Kategorien-Cloud
-    tagCloud.innerHTML = '<span class="tag-badge" id="kat-all" onclick="setFilter(\'kat\', \'all\')">Alle anzeigen</span>';
-    kategorien.forEach(k => {
-        const span = document.createElement('span');
-        span.className = 'tag-badge';
-        span.id = `kat-${k}`;
-        span.textContent = k;
-        span.onclick = () => setFilter('kat', k);
-        tagCloud.appendChild(span);
-    });
+    document.getElementById('theme-filter').innerHTML = themes.map(t => 
+        `<li onclick="filterBy('theme', '${t}', this)">${t}</li>`).join('');
+    document.getElementById('category-filter').innerHTML = categories.map(c => 
+        `<li onclick="filterBy('category', '${c}', this)">${c}</li>`).join('');
 }
 
-/**
- * Setzt den Filter-Status und löst die Filterung aus
- */
-function setFilter(type, value) {
-    if (type === 'theme') activeTheme = value;
-    if (type === 'kat') activeKategorie = value;
-    applyFilters();
-}
-
-/**
- * Filtert die Liste und aktualisiert die gesamte UI
- */
-function applyFilters() {
-    const filtered = allFiles.filter(f => {
-        const matchTheme = (activeTheme === 'all' || (f.themen || []).includes(activeTheme));
-        const matchKat = (activeKategorie === 'all' || (f.kategorien || []).includes(activeKategorie));
-        return matchTheme && matchKat;
-    });
-
-    renderFiles(filtered);
-    updateActiveStyles();
-    renderFilterChips();
-}
-
-/**
- * Erzeugt die anklickbaren Filter-Chips oberhalb der Ergebnisse
- */
-function renderFilterChips() {
-    const statusText = document.getElementById('filter-status-text');
-    const chipsContainer = document.getElementById('active-chips');
-    
-    if (!statusText || !chipsContainer) return;
-    
-    chipsContainer.innerHTML = '';
-
-    if (activeTheme === 'all' && activeKategorie === 'all') {
-        statusText.textContent = "Alle Materialien werden angezeigt";
+function filterBy(type, value, element) {
+    if (type === 'theme') {
+        document.querySelectorAll('#theme-filter li').forEach(li => li.classList.remove('active'));
+        activeTheme = (activeTheme === value) ? null : value;
+        if (activeTheme) element.classList.add('active');
     } else {
-        statusText.textContent = "Aktive Filter (klicken zum Entfernen):";
-        
-        if (activeTheme !== 'all') {
-            const chip = document.createElement('div');
-            chip.className = 'filter-chip';
-            chip.innerHTML = `Thema: ${activeTheme} <span class="close-icon">×</span>`;
-            chip.onclick = () => setFilter('theme', 'all');
-            chipsContainer.appendChild(chip);
-        }
-
-        if (activeKategorie !== 'all') {
-            const chip = document.createElement('div');
-            chip.className = 'filter-chip';
-            chip.innerHTML = `Kategorie: ${activeKategorie} <span class="close-icon">×</span>`;
-            chip.onclick = () => setFilter('kat', 'all');
-            chipsContainer.appendChild(chip);
-        }
+        document.querySelectorAll('#category-filter li').forEach(li => li.classList.remove('active'));
+        activeCategory = (activeCategory === value) ? null : value;
+        if (activeCategory) element.classList.add('active');
     }
+
+    const filtered = allFiles.filter(f => {
+        const tMatch = !activeTheme || f.themen.includes(activeTheme);
+        const cMatch = !activeCategory || f.kategorien.includes(activeCategory);
+        return tMatch && cMatch;
+    });
+    renderFiles(filtered);
 }
 
-/**
- * Markiert die aktiven Badges in der Sidebar blau
- */
-function updateActiveStyles() {
-    document.querySelectorAll('.tag-badge').forEach(el => el.classList.remove('active'));
-    
-    const tId = activeTheme === 'all' ? 'theme-all' : `theme-${activeTheme}`;
-    const kId = activeKategorie === 'all' ? 'kat-all' : `kat-${activeKategorie}`;
-    
-    if (document.getElementById(tId)) document.getElementById(tId).classList.add('active');
-    if (document.getElementById(kId)) document.getElementById(kId).classList.add('active');
-}
-
-/**
- * Logik für die kleine Bildvorschau (rechts) oder Audio-Player
- */
 function getPreviewHTML(file) {
-    const fileNameWithExt = file.url.split('/').pop();
-    const fileName = fileNameWithExt.substring(0, fileNameWithExt.lastIndexOf('.'));
-    const previewUrl = `preview/${fileName}.jpg`;
-    const ext = fileNameWithExt.split('.').pop().toLowerCase();
+    const ext = file.url.split('.').pop().toLowerCase();
+    const fileName = file.url.split('/').pop().split('.')[0];
 
-    // Falls Audio: Direkt den Player anzeigen
-    if (['mp3', 'wav', 'ogg'].includes(ext)) {
-        return `<div class="audio-box">
-                    <audio controls><source src="${file.url}" type="audio/${ext}"></audio>
-                </div>`;
+    // Wenn es ein Bild ist, nimm es direkt als Vorschau
+    if (['png', 'jpg', 'jpeg', 'webp'].includes(ext)) {
+        return `<div class="card-preview"><img src="${file.url}" alt="Vorschau"></div>`;
     }
-
-    // Für alle anderen: Suche im preview-Ordner nach [dateiname].jpg
-    // onerror versteckt das Element, falls kein Bild existiert
-    return `<div class="card-preview" id="preview-box-${fileName}">
-                <img src="${previewUrl}" alt="" onerror="this.parentElement.style.display='none'">
-            </div>`;
+    // Für PDFs: Suche im preview-Ordner nach dem JPG
+    return `<div class="card-preview"><img src="preview/${fileName}.jpg" onerror="this.parentElement.style.display='none'"></div>`;
 }
 
-/**
- * Erstellt die Karten im Inhaltsbereich
- */
 function renderFiles(files) {
     const grid = document.getElementById('content-grid');
-    if (!grid) return;
-    grid.innerHTML = ''; 
-
-    if (files.length === 0) {
-        grid.innerHTML = "<p>Kein Material für diese Kombination gefunden.</p>";
-        return;
-    }
-
-    files.forEach(file => {
-        const card = document.createElement('div');
-        card.className = 'file-card';
-        
-        // Kompaktes Layout: Info links, Bild rechts, Buttons unten
-        card.innerHTML = `
+    grid.innerHTML = files.map(file => `
+        <div class="file-card">
             <div class="card-main-info">
                 <div class="card-text-side">
-                    <h3>${file.name}</h3>
+                    <h3 style="margin:0 0 10px 0">${file.name}</h3>
                     <div class="theme-list">
                         ${(file.themen || []).map(t => `<span class="theme-label">${t}</span>`).join('')}
                     </div>
-                    <div class="card-tags">
+                    <div style="margin-top:8px">
                         ${(file.kategorien || []).map(k => `<span class="mini-tag">#${k}</span>`).join('')}
                     </div>
+                    ${file.info ? `<div class="card-info">${file.info}</div>` : ''}
                 </div>
                 ${getPreviewHTML(file)}
             </div>
-            
             <div class="action-buttons">
                 <a href="${file.url}" target="_blank" class="preview-btn">Ansehen</a>
                 <a href="${file.url}" download class="download-btn">Download</a>
             </div>
-        `;
-        grid.appendChild(card);
-    });
+        </div>
+    `).join('');
 }
+
+document.getElementById('reset-filter').onclick = () => {
+    activeTheme = null; activeCategory = null;
+    document.querySelectorAll('.sidebar li').forEach(li => li.classList.remove('active'));
+    renderFiles(allFiles);
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    injectEmail();
+});
