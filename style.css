@@ -1,283 +1,133 @@
-/* Grundlegendes Layout */
+:root {
+    --primary: #3498db;
+    --secondary: #2c3e50;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --light-text: #64748b;
+}
+
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f8fafc;
-    color: #2d3748;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     margin: 0;
-    line-height: 1.4; /* Etwas kompakterer Zeilenabstand */
+    padding: 20px;
 }
 
 header {
-    background-color: #ffffff;
-    padding: 15px 10px; /* Sehr kompakte Header-Abstände */
     text-align: center;
-    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 40px;
 }
 
-/* Titel: Kleiner und in Grau */
-header h1 {
-    margin: 0;
-    color: #666666; /* Dezentes Grau */
-    font-size: 1.2rem; /* Noch etwas kleiner für Mobile */
-    font-weight: 600;
+.header-description {
+    max-width: 800px;
+    margin: 20px auto;
+    line-height: 1.6;
+    color: var(--light-text);
+}
+
+.contribution-note {
+    margin-top: 15px;
+    font-style: italic;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+    display: inline-block;
 }
 
 .layout {
     display: flex;
+    gap: 30px;
     max-width: 1200px;
-    margin: 15px auto; /* Wenig Abstand oben/unten */
-    gap: 20px;
-    padding: 0 10px;
+    margin: 0 auto;
 }
 
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    flex-shrink: 0;
-}
+.sidebar { width: 250px; flex-shrink: 0; }
 
-/* Überschriften: Korrekte Groß- und Kleinschreibung */
-.sidebar h3 {
-    font-size: 1rem;
-    text-transform: none; 
-    color: #4a5568;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 4px;
-    margin-top: 15px;
-    margin-bottom: 8px;
-}
-
-/* Tag Clouds */
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.tag-badge {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    padding: 3px 8px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    transition: all 0.2s;
-}
-
-.tag-badge.active {
-    background-color: #3498db;
-    color: white;
-    border-color: #2980b9;
-}
-
-/* Bereich für aktive Filter-Chips */
-#active-filter-area {
-    margin-bottom: 10px;
-    padding: 8px;
-    background: #fff;
-    border-radius: 6px;
-    border: 1px solid #edf2f7;
-}
-
-#filter-status-text {
-    font-size: 0.8rem;
-    color: #718096;
-    display: block;
-    margin-bottom: 5px;
-}
-
-#active-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-
-.filter-chip {
-    background-color: #edf2f7;
-    color: #2d3748;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.filter-chip .close-icon {
-    margin-left: 5px;
-    color: #e74c3c;
-    font-size: 0.9rem;
-}
-
-/* Hauptbereich & Grid */
-#content-grid {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 10px; /* Sehr enges Raster */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
 }
 
-/* KARTEN-DESIGN: KOMPAKTES RECHTS-BILD-LAYOUT */
 .file-card {
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #edf2f7;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-    display: flex;
-    flex-direction: column; /* Stapelt Hauptinfo und Button vertical */
-    padding: 12px; /* Einheitliches Innenpadding */
-    transition: transform 0.2s;
-}
-
-.file-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.04);
-}
-
-/* Oberer Bereich: Text links, Bild rechts */
-.card-main-info {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start; /* Richtet Text oben bündig mit Bild aus */
-    margin-bottom: 10px; /* Abstand zum Button */
-}
-
-.card-text-side {
-    flex: 1; /* Nimmt restlichen Platz links ein */
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
 }
 
-.file-card h3 {
-    margin: 0 0 5px 0;
-    font-size: 0.95rem;
-    color: #1a202c;
-    line-height: 1.2;
-}
-
-/* Vorschaubild: KLEIN UND RECHTS */
-.card-preview {
-    width: 50px; /* Feste, kleine Breite */
-    height: 50px; /* Quadratisch */
-    border-radius: 4px;
-    overflow: hidden;
-    flex-shrink: 0; /* Bild darf nicht zusammengedrückt werden */
-    background-color: #f1f5f9;
+.card-main-info {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
 }
-
-/* Falls kein Bild da ist, wird .card-preview durch JS versteckt (onerror), 
-   der Platz wird automatisch vom Text eingenommen */
 
 .card-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Bild füllt Quadrat aus */
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f1f5f9;
 }
 
-/* Sonderfall Audio-Box: Nimmt vollen Platz oberhalb des Buttons ein */
-.audio-box {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin-bottom: 8px;
-    background: transparent;
-}
-
-.audio-box audio {
-    width: 100%;
-    height: 30px;
-}
-
-/* Themen/Tugenden Labels */
-.theme-list {
-    margin-bottom: 4px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
+.card-info {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-style: italic;
+    margin-top: 8px;
 }
 
 .theme-label {
-    font-size: 0.65rem;
-    font-weight: bold;
-    color: #2c5282;
-    background: #ebf8ff;
-    padding: 1px 5px;
-    border-radius: 3px;
-    display: inline-block;
-}
-
-.theme-label::before {
-    content: "◈ ";
-}
-
-.card-tags {
-    margin-bottom: 0; /* Kein Extra-Abstand unten */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 5px;
 }
 
 .mini-tag {
-    font-size: 0.65rem;
-    color: #718096;
-    background-color: #f7fafc;
-    padding: 1px 4px;
-    border-radius: 3px;
+    color: var(--light-text);
+    font-size: 0.75rem;
+    margin-right: 8px;
 }
 
-/* BUTTONS UNTERHALB, VOLLE BREITE */
 .action-buttons {
     display: flex;
-    gap: 8px;
-    margin-top: auto; /* Schiebt Buttons ganz nach unten */
-    width: 100%;
+    gap: 10px;
+    margin-top: auto;
 }
 
 .preview-btn, .download-btn {
-    flex: 1; /* Beide Buttons teilen sich die Breite */
+    flex: 1;
     text-align: center;
-    padding: 6px;
-    border-radius: 5px;
-    font-weight: 600;
+    padding: 10px;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-weight: 600;
 }
 
-.preview-btn {
-    border: 1px solid #3498db;
-    color: #3498db;
-    background-color: transparent;
+.preview-btn { border: 1px solid var(--primary); color: var(--primary); }
+.download-btn { background: var(--primary); color: white; }
+
+/* Filter Styles */
+.sidebar ul li { 
+    padding: 8px; cursor: pointer; border-radius: 4px; 
+}
+.sidebar ul li.active { background: var(--primary); color: white; }
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: var(--light-text);
 }
 
-.preview-btn:hover {
-    background-color: #f0f9ff;
-}
-
-.download-btn {
-    background-color: #3498db;
-    color: #ffffff;
-}
-
-.download-btn:hover {
-    background-color: #2980b9;
-}
-
-/* Mobile Optimierung */
-@media (max-width: 850px) {
-    .layout {
-        flex-direction: column;
-        margin-top: 5px;
-        gap: 10px;
-    }
-    .sidebar {
-        width: 100%;
-    }
-    
-    /* Auf sehr kleinen Handys Grid kompakter machen */
-    #content-grid {
-        grid-template-columns: 1fr; /* Einspaltig auf Mobile */
-    }
+@media (max-width: 768px) {
+    .layout { flex-direction: column; }
 }
