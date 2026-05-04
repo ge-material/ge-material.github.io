@@ -3,37 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geistige Erziehung: Material für die Arbeit mit (Klein-)Kindern</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Geistige Erziehung - Material</title>
+    <link rel="stylesheet" href="style.css?v=1.6">
+    <meta name="robots" content="noindex">
 </head>
 <body>
-    <header>
-        <h1>Geistige Erziehung: Material für die Arbeit mit (Klein-)Kindern</h1>
-    </header>
 
-    <div class="layout">
-        <nav class="sidebar">
-            <h3>Themen / Tugenden</h3>
-            <div id="theme-cloud" class="tag-cloud"></div>
-
-            <h3>Kategorien / Tags</h3>
-            <div id="tag-cloud" class="tag-cloud"></div>
-        </nav>
-
-        <main>
-            <div id="active-filter-area">
-                <span id="filter-status-text">Alle Materialien werden angezeigt</span>
-                <div id="active-chips"></div>
-            </div>
-
-            <div id="content-grid">Material wird geladen...</div>
-        </main>
+<header>
+    <h1>Geistige Erziehung: Material für die Arbeit mit (Klein-)Kindern</h1>
+    
+    <div class="header-description">
+        <p>
+            Zur Verwendung in <strong>Familien</strong>, <strong>Kinderklassen</strong> 
+            oder anderen pädagogischen Kreisen. Die Inhalte dürfen für 
+            <strong>nicht-kommerzielle Zwecke</strong> frei heruntergeladen, 
+            vervielfältigt und weitergegeben werden.
+        </p>
+        <p class="contribution-note">
+            Du möchtest Material beisteuern oder hast eine Frage? 
+            Nimm gerne Kontakt auf: 
+            <span id="email-placeholder"></span>
+        </p>
     </div>
-    <script>
-		// Erzeugt einen Link mit der aktuellen Uhrzeit als Version, z.B. script.js?t=162000...
-		var script = document.createElement('script');
-		script.src = 'script.js?v=' + Date.now();
-		document.head.appendChild(script);
-	</script>
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h3>Themen</h3>
+        <ul id="theme-filter"></ul>
+        
+        <h3>Kategorien</h3>
+        <ul id="category-filter"></ul>
+        
+        <button id="reset-filter" class="reset-btn">Alle anzeigen</button>
+    </aside>
+
+    <main id="content-grid" class="grid"></main>
+</div>
+
+<footer>
+    <p>
+        &copy; 2024 Geistige Erziehung | 
+        <a href="impressum.html">Impressum</a> | 
+        <a href="LICENSE.txt">Nutzungsbedingungen (Lizenz)</a>
+    </p>
+</footer>
+
+<script src="script.js?v=1.6"></script>
 </body>
 </html>
