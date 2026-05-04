@@ -8,7 +8,7 @@ window.onload = initApp;
 async function initApp() {
     const grid = document.getElementById('content-grid');
     try {
-        const response = await fetch('files.json');
+		const response = await fetch('files.json?v=' + Date.now());
         
         if (!response.ok) {
             grid.innerHTML = `<p style="color:red">Fehler: files.json wurde nicht gefunden.</p>`;

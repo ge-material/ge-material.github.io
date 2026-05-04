@@ -29,6 +29,11 @@
             <div id="content-grid">Material wird geladen...</div>
         </main>
     </div>
-    <script src="script.js"></script>
+    <script>
+		// Erzeugt einen Link mit der aktuellen Uhrzeit als Version, z.B. script.js?t=162000...
+		var script = document.createElement('script');
+		script.src = 'script.js?v=' + Date.now();
+		document.head.appendChild(script);
+	</script>
 </body>
 </html>
