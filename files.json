@@ -10,5 +10,29 @@
     "url": "files/Selig ist der Ort.pdf",
     "themen": ["Lobpreis"],
     "kategorien": ["Gebet", "Bilderlese-Text"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0001.png",
+    "themen": ["Geduld"],
+    "kategorien": ["Malvorlage"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0002.png",
+    "themen": ["Geduld"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0003.png",
+    "themen": ["Geduld"],
+    "kategorien": ["Ausmalbild"]
+  }
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0004.png",
+    "themen": ["Geduld"],
+    "kategorien": ["Ausmalbild"]
   }
 ]
