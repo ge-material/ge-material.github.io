@@ -28,13 +28,17 @@
 
 <div class="layout">
     <aside class="sidebar">
-        <h3>Themen</h3>
-        <ul id="theme-filter"></ul>
+        <div class="filter-group">
+            <h3>Themen</h3>
+            <ul id="theme-filter" class="filter-list"></ul>
+        </div>
         
-        <h3>Kategorien</h3>
-        <ul id="category-filter"></ul>
+        <div class="filter-group">
+            <h3>Kategorien</h3>
+            <ul id="category-filter" class="filter-list"></ul>
+        </div>
         
-        <button id="reset-filter" class="reset-btn">Alle anzeigen</button>
+        <button id="reset-filter" class="reset-btn">Filter zurücksetzen</button>
     </aside>
 
     <main id="content-grid" class="grid"></main>
