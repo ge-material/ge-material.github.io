@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geistige Erziehung - Material</title>
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <script>
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'style.css?v=' + Date.now();
+    document.head.appendChild(l);
+</script>
     <meta name="robots" content="noindex">
 </head>
 <body>
@@ -41,9 +46,18 @@
 </div>
 
 <footer>
-    <p>&copy; 2026 Geistige Erziehung | <a href="impressum.html">Impressum</a></p>
+    <p>
+        &copy; 2026 Geistige Erziehung | 
+        Inhalte zur freien, nicht-kommerziellen Nutzung | 
+        <a href="impressum.html">Impressum</a>
+    </p>
 </footer>
 
-<script src="script.js?v=1.8"></script>
+
+<script>
+    var s = document.createElement('script');
+    s.src = 'script.js?v=' + Date.now();
+    document.body.appendChild(s);
+</script>
 </body>
 </html>
