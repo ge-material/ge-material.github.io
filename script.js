@@ -2,15 +2,14 @@ let allFiles = [];
 let activeTheme = null;
 let activeCategory = null;
 
-// E-Mail-Schutz
 function injectEmail() {
-    const user = "kontakt";      // Bitte anpassen
-    const domain = "ge-material"; // Bitte anpassen
-    const tld = "at";            // Bitte anpassen
+    const user = "kontakt";      
+    const domain = "ge-material";
+    const tld = "at";            
     const email = user + "@" + domain + "." + tld;
     const container = document.getElementById('email-placeholder');
     if (container) {
-        container.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+        container.innerHTML = `<a href="mailto:${email}" style="color:#3498db;text-decoration:none;font-weight:bold;">${email}</a>`;
     }
 }
 
@@ -21,7 +20,7 @@ async function loadData() {
         renderFilters();
         renderFiles(allFiles);
     } catch (e) {
-        console.error("Ladefehler:", e);
+        console.error("Fehler beim Laden:", e);
     }
 }
 
@@ -32,25 +31,22 @@ function renderFilters() {
     const themeList = document.getElementById('theme-filter');
     const catList = document.getElementById('category-filter');
 
-    themeList.innerHTML = themes.map(t => 
-        `<li onclick="filterBy('theme', '${t}', this)">${t}</li>`).join('');
-    catList.innerHTML = categories.map(c => 
-        `<li onclick="filterBy('category', '${c}', this)">${c}</li>`).join('');
+    // "Alle anzeigen" Button für Themen
+    themeList.innerHTML = `<li id="all-themes" class="${!activeTheme ? 'active' : ''}" onclick="filterBy('theme', null)">Alle anzeigen</li>` + 
+        themes.map(t => `<li class="${activeTheme === t ? 'active' : ''}" onclick="filterBy('theme', '${t}')">${t}</li>`).join('');
+
+    // "Alle anzeigen" Button für Kategorien
+    catList.innerHTML = `<li id="all-cats" class="${!activeCategory ? 'active' : ''}" onclick="filterBy('category', null)">Alle anzeigen</li>` + 
+        categories.map(c => `<li class="${activeCategory === c ? 'active' : ''}" onclick="filterBy('category', '${c}')">${c}</li>`).join('');
+    
+    renderActiveFilterBadges();
 }
 
-function filterBy(type, value, element) {
+function filterBy(type, value) {
     if (type === 'theme') {
-        const isSame = (activeTheme === value);
-        // Alle aktiven Klassen in dieser Gruppe entfernen
-        document.querySelectorAll('#theme-filter li').forEach(li => li.classList.remove('active'));
-        // Wenn es ein neuer Filter ist, setzen und Klasse hinzufügen
-        activeTheme = isSame ? null : value;
-        if (activeTheme) element.classList.add('active');
+        activeTheme = value;
     } else {
-        const isSame = (activeCategory === value);
-        document.querySelectorAll('#category-filter li').forEach(li => li.classList.remove('active'));
-        activeCategory = isSame ? null : value;
-        if (activeCategory) element.classList.add('active');
+        activeCategory = value;
     }
 
     const filtered = allFiles.filter(f => {
@@ -58,7 +54,21 @@ function filterBy(type, value, element) {
         const cMatch = !activeCategory || (f.kategorien && f.kategorien.includes(activeCategory));
         return tMatch && cMatch;
     });
+
+    renderFilters();
     renderFiles(filtered);
+}
+
+function renderActiveFilterBadges() {
+    const container = document.getElementById('active-filters-container');
+    container.innerHTML = '';
+
+    if (activeTheme) {
+        container.innerHTML += `<div class="active-pill">${activeTheme} <span class="remove-filter" onclick="filterBy('theme', null)">×</span></div>`;
+    }
+    if (activeCategory) {
+        container.innerHTML += `<div class="active-pill">${activeCategory} <span class="remove-filter" onclick="filterBy('category', null)">×</span></div>`;
+    }
 }
 
 function getPreviewHTML(file) {
@@ -73,7 +83,7 @@ function getPreviewHTML(file) {
 function renderFiles(files) {
     const grid = document.getElementById('content-grid');
     if (files.length === 0) {
-        grid.innerHTML = '<p style="padding:20px; color:#64748b;">Kein Material für diese Filterkombination gefunden.</p>';
+        grid.innerHTML = '<p style="padding:20px; color:#64748b;">Kein Material gefunden.</p>';
         return;
     }
     grid.innerHTML = files.map(file => `
@@ -81,8 +91,8 @@ function renderFiles(files) {
             <div class="card-main-info">
                 <div class="card-text-side">
                     <h3 style="margin:0 0 10px 0">${file.name}</h3>
-                    <div>${(file.themen || []).map(t => `<span class="theme-label">${t}</span>`).join('')}</div>
-                    <div style="margin-top:8px">${(file.kategorien || []).map(k => `<span class="mini-tag">#${k}</span>`).join('')}</div>
+                    <div>${(file.themen || []).map(t => `<span class="theme-label">⬥ ${t}</span>`).join('')}</div>
+                    <div style="margin-top:8px; color:#64748b; font-size:0.85rem;">#${(file.kategorien || []).join(' #')}</div>
                     ${file.info ? `<div class="card-info">${file.info}</div>` : ''}
                 </div>
                 ${getPreviewHTML(file)}
@@ -98,7 +108,7 @@ function renderFiles(files) {
 document.getElementById('reset-filter').onclick = () => {
     activeTheme = null;
     activeCategory = null;
-    document.querySelectorAll('.filter-list li').forEach(li => li.classList.remove('active'));
+    renderFilters();
     renderFiles(allFiles);
 };
 
