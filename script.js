@@ -3,10 +3,12 @@ let activeTheme = null;
 let activeCategory = null;
 
 function injectEmail() {
-    const user = "kontakt";      
-    const domain = "ge-material";
-    const tld = "at";            
-    const email = user + "@" + domain + "." + tld;
+    const u1 = "github";      
+    const u2 = "material";      
+    const u3 = "ge";      
+    const domain = "gmail";
+    const tld = "com";            
+    const email = u3 + '.' + u2 + '.' + u1 + "@" + domain + "." + tld;
     const container = document.getElementById('email-placeholder');
     if (container) {
         container.innerHTML = `<a href="mailto:${email}" style="color:#3498db;text-decoration:none;font-weight:bold;">${email}</a>`;
