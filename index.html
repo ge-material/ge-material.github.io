@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geistige Erziehung - Material</title>
- <link rel="stylesheet" href="style.css">
-    <meta name="robots" content="noindex">
+    
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow"> <meta name="gptbot" content="noindex, nofollow"> <meta name="google" content="notranslate">
+
+    <script>
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'style.css?v=' + Date.now();
+        document.head.appendChild(l);
+    </script>
+
+    <style>
+        /* Basis-Schutz gegen Markieren und Kopieren von Text */
+        body {
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,8 +57,7 @@
             <ul id="category-filter" class="filter-pills"></ul>
         </div>
         
-        <div id="active-filters-container" class="active-filters-box">
-            </div>
+        <div id="active-filters-container" class="active-filters-box"></div>
         
         <button id="reset-filter" class="reset-btn">Filter zurücksetzen</button>
     </aside>
@@ -47,19 +65,22 @@
     <main id="content-grid" class="grid"></main>
 </div>
 
-<footer>
-    
-<p class="disclaimer">
-    <strong>Hinweis:</strong> Download und Nutzung der Materialien auf eigene Gefahr. Haftung für Schäden durch Viren oder Manipulationen Dritter ausgeschlossen.
-</p>
-<p>
+<footer class="site-footer">
+    <p class="disclaimer">
+        <strong>Hinweis:</strong> Download und Nutzung der Materialien auf eigene Gefahr. Haftung für Schäden durch Viren oder Manipulationen Dritter ausgeschlossen.
+    </p>
+    <p class="footer-bottom">
         &copy; 2026 GE-Material | 
         Inhalte zur freien, nicht-kommerziellen Nutzung | 
-        <a href="impressum.html">Impressum</a>
+        <a href="impressum.html">Impressum</a> | 
+        <a href="privacy.html">Datenschutz</a>
     </p>
 </footer>
 
-
- <script src="script.js"></script>
+<script>
+    var s = document.createElement('script');
+    s.src = 'script.js?v=' + Date.now();
+    document.body.appendChild(s);
+</script>
 </body>
 </html>
