@@ -20,11 +20,18 @@ body {
 header { text-align: center; margin-bottom: 30px; }
 .header-description { max-width: 800px; margin: 0 auto 20px auto; color: var(--light-text); }
 
-.layout { display: flex; flex-direction: column; gap: 20px; max-width: 1000px; margin: 0 auto; }
+/* Layout-Breite erhöht, um mehr Spalten auf großen Screens zu erlauben */
+.layout { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
 
 /* Filter Pillen Design */
 .filter-group h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text);
     border-bottom: 2px solid var(--primary);
     padding-bottom: 5px;
@@ -34,20 +41,20 @@ header { text-align: center; margin-bottom: 30px; }
 .filter-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
 }
 
 .filter-pills li {
-    padding: 6px 16px;
+    padding: 6px 14px;
     background: white;
     border: 1px solid var(--border);
     border-radius: 20px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
 }
 
 .filter-pills li:hover { background: var(--pill-bg); }
@@ -93,26 +100,77 @@ header { text-align: center; margin-bottom: 30px; }
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.2s;
+}
+
+.reset-btn:hover { background: var(--primary-dark); }
+
+/* GRID SYSTEM - Optimiert für viele Spalten */
+.grid { 
+    display: grid; 
+    /* auto-fill erzeugt so viele Spalten wie reinpassen, min 280px breit */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px; 
+    flex-grow: 1;
 }
 
 /* Card Design */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
 .file-card {
     background: white;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column; /* Sorgt dafür, dass Buttons immer unten kleben */
 }
 
-.card-main-info { display: flex; justify-content: space-between; gap: 10px; }
-.card-preview img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; background: #eee; }
+.card-main-info { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 15px; 
+    margin-bottom: 15px;
+}
 
-.theme-label { background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 5px; }
+.card-text-side { flex: 1; }
+
+.card-preview img { 
+    width: 75px; 
+    height: 75px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    background: #eee; 
+}
+
+.theme-label { 
+    background: #e0f2fe; 
+    color: #0369a1; 
+    padding: 2px 8px; 
+    border-radius: 4px; 
+    font-size: 0.75rem; 
+    margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
 .mini-tag { color: var(--light-text); font-size: 0.8rem; }
 
-.action-buttons { display: flex; gap: 10px; margin-top: 15px; }
-.preview-btn, .download-btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+.action-buttons { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: auto; /* Schiebt Buttons an den unteren Rand der Karte */
+}
+
+.preview-btn, .download-btn { 
+    flex: 1; 
+    text-align: center; 
+    padding: 10px 5px; 
+    border-radius: 8px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 0.85rem;
+}
+
 .preview-btn { border: 1px solid var(--primary); color: var(--primary); }
 .download-btn { background: var(--primary); color: white; }
 
@@ -120,7 +178,7 @@ header { text-align: center; margin-bottom: 30px; }
 .site-footer {
     text-align: center;
     margin-top: 60px;
-    padding: 20px;
+    padding: 30px 20px;
     border-top: 1px solid var(--border);
     color: var(--light-text);
 }
@@ -129,13 +187,10 @@ header { text-align: center; margin-bottom: 30px; }
     font-size: 0.7rem;
     line-height: 1.4;
     max-width: 600px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 15px auto;
 }
 
-.footer-bottom {
-    font-size: 0.8rem;
-}
-
+.footer-bottom { font-size: 0.8rem; }
 .footer-bottom a {
     color: var(--light-text);
     text-decoration: underline;
@@ -143,11 +198,20 @@ header { text-align: center; margin-bottom: 30px; }
     transition: color 0.2s;
 }
 
-.footer-bottom a:hover {
-    color: var(--primary);
+.footer-bottom a:hover { color: var(--primary); }
+
+/* Responsive Media Queries */
+@media (min-width: 768px) {
+    .layout { flex-direction: row; align-items: flex-start; }
+    .sidebar { 
+        width: 280px; 
+        position: sticky; 
+        top: 20px; /* Sidebar bleibt beim Scrollen im Sichtfeld */
+    }
 }
 
-@media (min-width: 768px) {
-    .layout { flex-direction: row; }
-    .sidebar { width: 300px; }
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr; /* Volle Breite auf kleinen Handys */
+    }
 }
