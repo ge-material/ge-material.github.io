@@ -3,37 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geistige Erziehung: Material für die Arbeit mit (Klein-)Kindern</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Geistige Erziehung - Material</title>
+    
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow"> 
+    <meta name="gptbot" content="noindex, nofollow"> 
+    <meta name="google" content="notranslate">
+
+    <link rel="stylesheet" href="style.css?v=1.1">
+
+    <style>
+        /* Basis-Schutz gegen Markieren und Kopieren von Text */
+        body {
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Geistige Erziehung: Material für die Arbeit mit (Klein-)Kindern</h1>
-    </header>
 
-    <div class="layout">
-        <nav class="sidebar">
-            <h3>Themen / Tugenden</h3>
-            <div id="theme-cloud" class="tag-cloud"></div>
-
-            <h3>Kategorien / Tags</h3>
-            <div id="tag-cloud" class="tag-cloud"></div>
-        </nav>
-
-        <main>
-            <div id="active-filter-area">
-                <span id="filter-status-text">Alle Materialien werden angezeigt</span>
-                <div id="active-chips"></div>
-            </div>
-
-            <div id="content-grid">Material wird geladen...</div>
-        </main>
+<header>
+    <h1>Geistige Erziehung: Material für die Arbeit mit (Klein-)Kindern</h1>
+    
+    <div class="header-description">
+        <p>
+            Zur Verwendung in Familien, Bienchengruppen, Kinderklassen,... <br/>Die Inhalte dürfen für 
+            <strong>nicht-kommerzielle Zwecke</strong> frei heruntergeladen, 
+            vervielfältigt und weitergegeben werden.
+        </p>
+        <p class="contribution-note">
+            Du hast Fragen oder möchtest Material beisteuern? 
+            Nimm gerne Kontakt auf: 
+            <span id="email-placeholder"></span>
+        </p>
     </div>
-    <script>
-		// Erzeugt einen Link mit der aktuellen Uhrzeit als Version, z.B. script.js?t=162000...
-		var script = document.createElement('script');
-		script.src = 'script.js?v=' + Date.now();
-		document.head.appendChild(script);
-	</script>
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <div class="filter-group">
+            <h3>Themen / Tugenden</h3>
+            <ul id="theme-filter" class="filter-pills"></ul>
+        </div>
+        
+        <div class="filter-group">
+            <h3>Kategorien / Tags</h3>
+            <ul id="category-filter" class="filter-pills"></ul>
+        </div>
+        
+        <div id="active-filters-container" class="active-filters-box"></div>
+        
+        <button id="reset-filter" class="reset-btn">Filter zurücksetzen</button>
+    </aside>
+
+    <main id="content-grid" class="grid"></main>
+</div>
+
+<footer class="site-footer">
+    <p class="disclaimer">
+        <strong>Hinweis:</strong> Download und Nutzung der Materialien auf eigene Gefahr. Haftung für Schäden durch Viren oder Manipulationen Dritter ausgeschlossen.
+    </p>
+    <p class="footer-bottom">
+        &copy; 2026 GE-Material | 
+        Inhalte zur freien, nicht-kommerziellen Nutzung | 
+        <a href="impressum.html">Impressum</a> | 
+        <a href="privacy.html">Datenschutz</a>
+    </p>
+</footer>
+
+<script src="script.js?v=1.1"></script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - ge-material</title>
+    
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="google-extended" content="noindex, nofollow">
+    <meta name="gptbot" content="noindex, nofollow">
+    <meta name="google" content="notranslate">
+
+    <script>
+        // CSS Cache-Buster für konsistentes Design
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'style.css?v=' + Date.now();
+        document.head.appendChild(l);
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            padding: 20px;
+            -webkit-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none;
+        }
+        .imprint-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            line-height: 1.6;
+        }
+        h1 { color: #1e293b; border-bottom: 3px solid #3498db; display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
+        h3 { margin-top: 25px; color: #2c3e50; }
+        hr { border: 0; border-top: 1px solid #e2e8f0; margin: 25px 0; }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .usage-note {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="imprint-container">
+    <h1>Impressum</h1>
+    <p>Informationspflicht laut §5 E-Commerce Gesetz und Offenlegungspflicht laut §25 Mediengesetz.</p>
+    
+    <hr>
+    
+    <p><strong>Für den Inhalt verantwortlich:</strong><br>
+    Silvia Strauhal</p>
+
+    <p><strong>Postanschrift:</strong><br>
+    Postanschrift folgt in Kürze</p>
+
+    <p><strong>Kontakt:</strong><br>
+    E-Mail: <span id="email-placeholder"></span></p>
+
+    <hr>
+
+    <h3>Nutzungshinweis & Urheberrecht</h3>
+    <p>Die Nutzung der auf dieser Webseite bereitgestellten Inhalte ist ausschließlich für pädagogische, nicht-kommerzielle Zwecke gestattet. Eine gewerbliche Nutzung der Materialien ist untersagt.</p>
+
+    <div class="usage-note">
+        <strong>KI-Ausschlussklausel:</strong> 
+        Der Einsatz von automatisierten Systemen (KI-Crawler, Bots) zur Extraktion von Daten für die Erstellung von Datenbanken oder zum Training von Künstlicher Intelligenz wird ausdrücklich untersagt.
+    </div>
+
+    <p style="margin-top: 25px;">
+        Details zum Umgang mit Ihren Daten finden Sie in unserer 
+        <a href="privacy.html" style="color: #3498db; font-weight: bold;">Datenschutzerklärung</a>.
+    </p>
+
+    <a href="index.html" class="back-link">&larr; Zurück zur Startseite</a>
+</div>
+
+<script>
+/**
+ * Schützt die E-Mail-Adresse vor automatisiertem Auslesen
+ * Erzeugt: ge.material.github@gmail.com
+ */
+function injectEmail() {
+    const u1 = "github";      
+    const u2 = "material";      
+    const u3 = "ge";      
+    const domain = "gmail";
+    const tld = "com";            
+    const email = u3 + '.' + u2 + '.' + u1 + "@" + domain + "." + tld;
+    const container = document.getElementById('email-placeholder');
+    if (container) {
+        container.innerHTML = `<a href="mailto:${email}" style="color:#3498db;text-decoration:none;font-weight:bold;">${email}</a>`;
+    }
+}
+
+// Initialisierung beim Laden der Seite
+window.addEventListener('DOMContentLoaded', injectEmail);
+</script>
+
+</body>
+</html>

@@ -1,235 +1,153 @@
-/* Grundlegendes Layout */
+:root {
+    --primary: #3498db;
+    --primary-dark: #2980b9;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --light-text: #64748b;
+    --border: #cbd5e1;
+    --pill-bg: #e2e8f0;
+}
+
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f8fafc;
-    color: #2d3748;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     margin: 0;
-    line-height: 1.4;
+    padding: 20px;
 }
 
-header {
-    background-color: #ffffff;
-    padding: 15px 10px;
-    text-align: center;
-    border-bottom: 1px solid #e2e8f0;
-}
+header { text-align: center; margin-bottom: 30px; }
+.header-description { max-width: 800px; margin: 0 auto 20px auto; color: var(--light-text); }
 
-header h1 {
-    margin: 0;
-    color: #666666;
+.layout { display: flex; flex-direction: column; gap: 20px; max-width: 1000px; margin: 0 auto; }
+
+/* Filter Pillen Design */
+.filter-group h3 {
     font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.layout {
-    display: flex;
-    max-width: 1400px; /* Etwas breiter als vorher für mehr Spaltenplatz */
-    margin: 15px auto;
-    gap: 20px;
-    padding: 0 15px;
-}
-
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    flex-shrink: 0;
-}
-
-.sidebar h3 {
-    font-size: 0.9rem;
-    color: #4a5568;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    border-bottom: 1px solid #edf2f7;
+    color: var(--text);
+    border-bottom: 2px solid var(--primary);
     padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-/* Navigations-Bubbles */
-.nav-cloud {
+.filter-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-}
-
-.nav-pill {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: #4a5568;
-}
-
-.nav-pill:hover {
-    background-color: #edf2f7;
-    border-color: #cbd5e0;
-}
-
-.nav-pill.active {
-    background-color: #4299e1;
-    color: white;
-    border-color: #3182ce;
-}
-
-/* Hauptbereich & GRID-SYSTEM */
-#content-grid {
-    flex-grow: 1;
-    display: grid;
-    /* Erzeugt automatisch so viele Spalten wie möglich (mind. 260px breit) */
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 15px;
-    align-content: start;
-}
-
-/* KARTEN-DESIGN */
-.file-card {
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #edf2f7;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    /* transition: transform entfernt (kein Anheben) */
-}
-
-.file-card:hover {
-    border-color: #cbd5e0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.card-main-info {
-    display: flex;
     gap: 10px;
-    margin-bottom: 12px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
-.card-text-side {
-    flex: 1;
+.filter-pills li {
+    padding: 6px 16px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
 }
 
-.card-text-side h3 {
-    margin: 0 0 8px 0;
-    font-size: 0.95rem;
-    color: #2d3748;
-    line-height: 1.2;
+.filter-pills li:hover { background: var(--pill-bg); }
+
+.filter-pills li.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
 }
 
-/* Vorschau-Bild */
-.card-preview-img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 4px;
-    background-color: #f7fafc;
-    border: 1px solid #edf2f7;
-}
-
-/* Labels und Tags */
-.theme-list {
-    margin-bottom: 6px;
-}
-
-.theme-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #3182ce;
-    background: #ebf8ff;
-    padding: 1px 5px;
-    border-radius: 3px;
-    display: inline-block;
-}
-
-.theme-label::before {
-    content: "◈ ";
-}
-
-.card-tags {
-    margin-bottom: 0;
+/* Aktive Filter Box */
+.active-filters-box {
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
-}
-
-.mini-tag {
-    font-size: 0.65rem;
-    color: #718096;
-    background-color: #f7fafc;
-    padding: 1px 4px;
-    border-radius: 3px;
-}
-
-/* BUTTONS UNTERHALB, VOLLE BREITE */
-.action-buttons {
-    display: flex;
     gap: 8px;
-    margin-top: auto; /* Schiebt Buttons ans Ende der Karte */
-    width: 100%;
+    margin-bottom: 15px;
+    min-height: 30px;
 }
 
-.preview-btn, .download-btn {
-    flex: 1;
+.active-pill {
+    background: #f1f5f9;
+    border: 1px solid var(--primary);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remove-filter {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.reset-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Card Design */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.file-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f1f5f9;
+}
+
+.card-main-info { display: flex; justify-content: space-between; gap: 10px; }
+.card-preview img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; background: #eee; }
+
+.theme-label { background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 5px; }
+.mini-tag { color: var(--light-text); font-size: 0.8rem; }
+
+.action-buttons { display: flex; gap: 10px; margin-top: 15px; }
+.preview-btn, .download-btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+.preview-btn { border: 1px solid var(--primary); color: var(--primary); }
+.download-btn { background: var(--primary); color: white; }
+
+/* Dezenterer Footer */
+.site-footer {
     text-align: center;
-    padding: 8px 6px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
+    margin-top: 60px;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--light-text);
+}
+
+.site-footer .disclaimer {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto 10px auto;
+}
+
+.footer-bottom {
     font-size: 0.8rem;
 }
 
-.preview-btn {
-    border: 1px solid #e2e8f0;
-    color: #4a5568;
-    background: #ffffff;
+.footer-bottom a {
+    color: var(--light-text);
+    text-decoration: underline;
+    margin: 0 5px;
+    transition: color 0.2s;
 }
 
-.preview-btn:hover {
-    background: #f7fafc;
+.footer-bottom a:hover {
+    color: var(--primary);
 }
 
-.download-btn {
-    background-color: #4299e1;
-    color: white;
-}
-
-.download-btn:hover {
-    background-color: #3182ce;
-}
-
-/* RESPONSIVE ANPASSUNGEN */
-
-/* Tablet & kleinere Desktops */
-@media (max-width: 900px) {
-    .layout {
-        flex-direction: column;
-        margin-top: 5px;
-    }
-    
-    .sidebar {
-        width: 100%;
-    }
-
-    #content-grid {
-        /* Auf Tablets versuchen wir 2 Spalten beizubehalten */
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    }
-}
-
-/* Smartphone */
-@media (max-width: 500px) {
-    header h1 {
-        font-size: 1.1rem;
-    }
-
-    #content-grid {
-        /* Auf kleinen Handys alles untereinander */
-        grid-template-columns: 1fr;
-    }
-
-    .card-preview-img {
-        width: 60px;
-        height: 60px;
-    }
+@media (min-width: 768px) {
+    .layout { flex-direction: row; }
+    .sidebar { width: 300px; }
 }
