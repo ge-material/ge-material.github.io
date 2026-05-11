@@ -17,25 +17,46 @@ body {
     padding: 20px;
 }
 
-header { text-align: center; margin-bottom: 30px; }
-.header-description { max-width: 800px; margin: 0 auto 20px auto; color: var(--light-text); }
+header { 
+    text-align: center; 
+    margin-bottom: 30px; 
+}
 
-/* Layout-Breite erhöht, um mehr Spalten auf großen Screens zu erlauben */
+/* Nutzt die volle Breite für den Beschreibungstext */
+.header-description { 
+    width: 100%; 
+    margin: 0 0 20px 0; 
+    color: var(--light-text); 
+}
+
+/* Layout nutzt nun 100% der verfügbaren Breite */
 .layout { 
     display: flex; 
     flex-direction: column; 
     gap: 30px; 
-    max-width: 1400px; 
+    width: 100%; 
+    max-width: 100%; /* Begrenzung entfernt */
     margin: 0 auto; 
 }
 
-/* Filter Pillen Design */
+/* Filter Gruppen */
 .filter-group h3 {
     font-size: 1.1rem;
     color: var(--text);
     border-bottom: 2px solid var(--primary);
     padding-bottom: 5px;
     margin-bottom: 15px;
+}
+
+/* Spezifische Überschrift für aktive Filter (optische Trennung) */
+.active-filters-title {
+    font-size: 1.1rem;
+    color: var(--text);
+    border-bottom: 2px solid #e2e8f0; /* Graue Trennung */
+    padding-bottom: 5px;
+    margin-top: 30px; /* Abstand nach oben zur Kategorie-Gruppe */
+    margin-bottom: 15px;
+    display: block;
 }
 
 .filter-pills {
@@ -105,10 +126,9 @@ header { text-align: center; margin-bottom: 30px; }
 
 .reset-btn:hover { background: var(--primary-dark); }
 
-/* GRID SYSTEM - Optimiert für viele Spalten */
+/* GRID SYSTEM - Volle Breite und maximale Spaltenanzahl */
 .grid { 
     display: grid; 
-    /* auto-fill erzeugt so viele Spalten wie reinpassen, min 280px breit */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
     gap: 20px; 
     flex-grow: 1;
@@ -122,7 +142,7 @@ header { text-align: center; margin-bottom: 30px; }
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid #f1f5f9;
     display: flex;
-    flex-direction: column; /* Sorgt dafür, dass Buttons immer unten kleben */
+    flex-direction: column;
 }
 
 .card-main-info { 
@@ -158,7 +178,7 @@ header { text-align: center; margin-bottom: 30px; }
 .action-buttons { 
     display: flex; 
     gap: 10px; 
-    margin-top: auto; /* Schiebt Buttons an den unteren Rand der Karte */
+    margin-top: auto; 
 }
 
 .preview-btn, .download-btn { 
@@ -174,7 +194,6 @@ header { text-align: center; margin-bottom: 30px; }
 .preview-btn { border: 1px solid var(--primary); color: var(--primary); }
 .download-btn { background: var(--primary); color: white; }
 
-/* Dezenterer Footer */
 .site-footer {
     text-align: center;
     margin-top: 60px;
@@ -183,35 +202,22 @@ header { text-align: center; margin-bottom: 30px; }
     color: var(--light-text);
 }
 
-.site-footer .disclaimer {
-    font-size: 0.7rem;
-    line-height: 1.4;
-    max-width: 600px;
-    margin: 0 auto 15px auto;
-}
-
-.footer-bottom { font-size: 0.8rem; }
-.footer-bottom a {
-    color: var(--light-text);
-    text-decoration: underline;
-    margin: 0 5px;
-    transition: color 0.2s;
-}
-
-.footer-bottom a:hover { color: var(--primary); }
-
-/* Responsive Media Queries */
+/* Responsive Anpassungen */
 @media (min-width: 768px) {
-    .layout { flex-direction: row; align-items: flex-start; }
+    .layout { 
+        flex-direction: row; 
+        align-items: flex-start; 
+    }
     .sidebar { 
-        width: 280px; 
+        width: 300px; /* Etwas breiter für die Filter */
+        flex-shrink: 0;
         position: sticky; 
-        top: 20px; /* Sidebar bleibt beim Scrollen im Sichtfeld */
+        top: 20px; 
     }
 }
 
 @media (max-width: 600px) {
     .grid {
-        grid-template-columns: 1fr; /* Volle Breite auf kleinen Handys */
+        grid-template-columns: 1fr;
     }
 }
