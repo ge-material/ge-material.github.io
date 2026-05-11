@@ -4,30 +4,29 @@ body {
     background-color: #f8fafc;
     color: #2d3748;
     margin: 0;
-    line-height: 1.4; /* Etwas kompakterer Zeilenabstand */
+    line-height: 1.4;
 }
 
 header {
     background-color: #ffffff;
-    padding: 15px 10px; /* Sehr kompakte Header-Abstände */
+    padding: 15px 10px;
     text-align: center;
     border-bottom: 1px solid #e2e8f0;
 }
 
-/* Titel: Kleiner und in Grau */
 header h1 {
     margin: 0;
-    color: #666666; /* Dezentes Grau */
-    font-size: 1.2rem; /* Noch etwas kleiner für Mobile */
+    color: #666666;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .layout {
     display: flex;
-    max-width: 1200px;
-    margin: 15px auto; /* Wenig Abstand oben/unten */
+    max-width: 1400px; /* Etwas breiter als vorher für mehr Spaltenplatz */
+    margin: 15px auto;
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 /* Sidebar */
@@ -36,173 +35,107 @@ header h1 {
     flex-shrink: 0;
 }
 
-/* Überschriften: Korrekte Groß- und Kleinschreibung */
 .sidebar h3 {
-    font-size: 1rem;
-    text-transform: none; 
-    color: #4a5568;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 4px;
-    margin-top: 15px;
-    margin-bottom: 8px;
-}
-
-/* Tag Clouds */
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-
-.tag-badge {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    padding: 3px 8px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 0.75rem;
-    transition: all 0.2s;
-}
-
-.tag-badge.active {
-    background-color: #3498db;
-    color: white;
-    border-color: #2980b9;
-}
-
-/* Bereich für aktive Filter-Chips */
-#active-filter-area {
-    margin-bottom: 10px;
-    padding: 8px;
-    background: #fff;
-    border-radius: 6px;
-    border: 1px solid #edf2f7;
-}
-
-#filter-status-text {
-    font-size: 0.8rem;
-    color: #718096;
-    display: block;
-    margin-bottom: 5px;
-}
-
-#active-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-}
-
-.filter-chip {
-    background-color: #edf2f7;
-    color: #2d3748;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.filter-chip .close-icon {
-    margin-left: 5px;
-    color: #e74c3c;
     font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 5px;
 }
 
-/* Hauptbereich & Grid */
+/* Navigations-Bubbles */
+.nav-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.nav-pill {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #4a5568;
+}
+
+.nav-pill:hover {
+    background-color: #edf2f7;
+    border-color: #cbd5e0;
+}
+
+.nav-pill.active {
+    background-color: #4299e1;
+    color: white;
+    border-color: #3182ce;
+}
+
+/* Hauptbereich & GRID-SYSTEM */
 #content-grid {
+    flex-grow: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 10px; /* Sehr enges Raster */
+    /* Erzeugt automatisch so viele Spalten wie möglich (mind. 260px breit) */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+    align-content: start;
 }
 
-/* KARTEN-DESIGN: KOMPAKTES RECHTS-BILD-LAYOUT */
+/* KARTEN-DESIGN */
 .file-card {
     background: #ffffff;
     border-radius: 8px;
     border: 1px solid #edf2f7;
     box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     display: flex;
-    flex-direction: column; /* Stapelt Hauptinfo und Button vertical */
-    padding: 12px; /* Einheitliches Innenpadding */
-    transition: transform 0.2s;
+    flex-direction: column;
+    padding: 12px;
+    /* transition: transform entfernt (kein Anheben) */
 }
 
 .file-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.04);
+    border-color: #cbd5e0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* Oberer Bereich: Text links, Bild rechts */
 .card-main-info {
     display: flex;
     gap: 10px;
-    align-items: flex-start; /* Richtet Text oben bündig mit Bild aus */
-    margin-bottom: 10px; /* Abstand zum Button */
+    margin-bottom: 12px;
 }
 
 .card-text-side {
-    flex: 1; /* Nimmt restlichen Platz links ein */
-    display: flex;
-    flex-direction: column;
+    flex: 1;
 }
 
-.file-card h3 {
-    margin: 0 0 5px 0;
+.card-text-side h3 {
+    margin: 0 0 8px 0;
     font-size: 0.95rem;
-    color: #1a202c;
+    color: #2d3748;
     line-height: 1.2;
 }
 
-/* Vorschaubild: KLEIN UND RECHTS */
-.card-preview {
-    width: 50px; /* Feste, kleine Breite */
-    height: 50px; /* Quadratisch */
+/* Vorschau-Bild */
+.card-preview-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
     border-radius: 4px;
-    overflow: hidden;
-    flex-shrink: 0; /* Bild darf nicht zusammengedrückt werden */
-    background-color: #f1f5f9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #f7fafc;
+    border: 1px solid #edf2f7;
 }
 
-/* Falls kein Bild da ist, wird .card-preview durch JS versteckt (onerror), 
-   der Platz wird automatisch vom Text eingenommen */
-
-.card-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Bild füllt Quadrat aus */
-}
-
-/* Sonderfall Audio-Box: Nimmt vollen Platz oberhalb des Buttons ein */
-.audio-box {
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin-bottom: 8px;
-    background: transparent;
-}
-
-.audio-box audio {
-    width: 100%;
-    height: 30px;
-}
-
-/* Themen/Tugenden Labels */
+/* Labels und Tags */
 .theme-list {
-    margin-bottom: 4px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
+    margin-bottom: 6px;
 }
 
 .theme-label {
-    font-size: 0.65rem;
-    font-weight: bold;
-    color: #2c5282;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #3182ce;
     background: #ebf8ff;
     padding: 1px 5px;
     border-radius: 3px;
@@ -214,7 +147,7 @@ header h1 {
 }
 
 .card-tags {
-    margin-bottom: 0; /* Kein Extra-Abstand unten */
+    margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
@@ -232,14 +165,14 @@ header h1 {
 .action-buttons {
     display: flex;
     gap: 8px;
-    margin-top: auto; /* Schiebt Buttons ganz nach unten */
+    margin-top: auto; /* Schiebt Buttons ans Ende der Karte */
     width: 100%;
 }
 
 .preview-btn, .download-btn {
-    flex: 1; /* Beide Buttons teilen sich die Breite */
+    flex: 1;
     text-align: center;
-    padding: 6px;
+    padding: 8px 6px;
     border-radius: 5px;
     font-weight: 600;
     text-decoration: none;
@@ -247,37 +180,56 @@ header h1 {
 }
 
 .preview-btn {
-    border: 1px solid #3498db;
-    color: #3498db;
-    background-color: transparent;
+    border: 1px solid #e2e8f0;
+    color: #4a5568;
+    background: #ffffff;
 }
 
 .preview-btn:hover {
-    background-color: #f0f9ff;
+    background: #f7fafc;
 }
 
 .download-btn {
-    background-color: #3498db;
-    color: #ffffff;
+    background-color: #4299e1;
+    color: white;
 }
 
 .download-btn:hover {
-    background-color: #2980b9;
+    background-color: #3182ce;
 }
 
-/* Mobile Optimierung */
-@media (max-width: 850px) {
+/* RESPONSIVE ANPASSUNGEN */
+
+/* Tablet & kleinere Desktops */
+@media (max-width: 900px) {
     .layout {
         flex-direction: column;
         margin-top: 5px;
-        gap: 10px;
     }
+    
     .sidebar {
         width: 100%;
     }
-    
-    /* Auf sehr kleinen Handys Grid kompakter machen */
+
     #content-grid {
-        grid-template-columns: 1fr; /* Einspaltig auf Mobile */
+        /* Auf Tablets versuchen wir 2 Spalten beizubehalten */
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+/* Smartphone */
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    #content-grid {
+        /* Auf kleinen Handys alles untereinander */
+        grid-template-columns: 1fr;
+    }
+
+    .card-preview-img {
+        width: 60px;
+        height: 60px;
     }
 }
