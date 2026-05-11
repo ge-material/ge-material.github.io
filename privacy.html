@@ -36,4 +36,54 @@
         p, li { font-size: 0.95rem; color: #334155; }
         .back-link { display: inline-block; margin-top: 30px; text-decoration: none; color: #3498db; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
-        .highlight-box { background: #f
+        .highlight-box { background: #f1f5f9; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; border-radius: 4px; }
+        hr { border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Datenschutzerklärung</h1>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Webseite:</p>
+    <p id="email-placeholder"><em>E-Mail-Adresse wird geladen...</em></p>
+
+    <h2>Allgemeine Hinweise</h2>
+    <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+    <h2>Datenerfassung auf unserer Webseite</h2>
+    <p>Diese Webseite wird über GitHub Pages gehostet. Bei der Nutzung von GitHub Pages können durch den Anbieter (GitHub, Inc.) Verbindungsdaten erfasst werden.</p>
+    <p><strong>Anbieter:</strong> GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA.<br>
+    <strong>Website:</strong> <a href="https://github.com" target="_blank">https://github.com</a><br>
+    <strong>Rechtliche Hinweise:</strong> <a href="https://docs.github.com/en/site-policy" target="_blank">GitHub Site Policy</a></p>
+
+    <h2>Bereitstellung von Inhalten und Materialien</h2>
+    <p>Wir nutzen diese Plattform zur Veröffentlichung von begleitenden Materialien für die geistige Erziehung und die Arbeit mit Kindern. Es findet keine Auswertung Ihres Nutzungsverhaltens zu Marketingzwecken unsererseits statt.</p>
+
+    <hr>
+
+    <div class="highlight-box">
+        <strong>Ausschluss von KI-Training:</strong><br>
+        Der Nutzung der auf dieser Webseite veröffentlichten Daten und Werke zum Zwecke des Text- und Data-Minings sowie zum Training von Systemen der Künstlichen Intelligenz (KI) wird ausdrücklich widersprochen.
+    </div>
+
+    <a href="index.html" class="back-link">&larr; Zurück zur Startseite</a>
+</div>
+
+<script>
+function injectEmail() {
+    const u1 = "github";      
+    const u2 = "material";      
+    const u3 = "ge";      
+    const domain = "gmail";
+    const tld = "com";            
+    const email = u3 + '.' + u2 + '.' + u1 + "@" + domain + "." + tld;
+    const container = document.getElementById('email-placeholder');
+    if (container) {
+        container.innerHTML = `<strong>Kontakt:</strong> <a href="mailto:${email}">${email}</a>`;
+    }
+}
+window.onload = injectEmail;
+</script>
+
+</body>
+</html>
