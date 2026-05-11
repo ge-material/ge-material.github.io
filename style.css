@@ -17,207 +17,90 @@ body {
     padding: 20px;
 }
 
-header { 
-    text-align: center; 
-    margin-bottom: 30px; 
-}
+header { text-align: center; margin-bottom: 20px; }
+.header-description { width: 100%; margin-bottom: 15px; color: var(--light-text); font-size: 0.9rem; }
 
-/* Nutzt die volle Breite für den Beschreibungstext */
-.header-description { 
-    width: 100%; 
-    margin: 0 0 20px 0; 
-    color: var(--light-text); 
-}
-
-/* Layout nutzt nun 100% der verfügbaren Breite */
 .layout { 
     display: flex; 
     flex-direction: column; 
     gap: 30px; 
     width: 100%; 
-    max-width: 100%; /* Begrenzung entfernt */
+    max-width: 100%; 
     margin: 0 auto; 
 }
 
-/* Filter Gruppen */
-.filter-group h3 {
-    font-size: 1.1rem;
+/* Filter Styles */
+.filter-group h3, .active-filters-title {
+    font-size: 1rem;
     color: var(--text);
     border-bottom: 2px solid var(--primary);
     padding-bottom: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-/* Spezifische Überschrift für aktive Filter (optische Trennung) */
 .active-filters-title {
-    font-size: 1.1rem;
-    color: var(--text);
-    border-bottom: 2px solid #e2e8f0; /* Graue Trennung */
-    padding-bottom: 5px;
-    margin-top: 30px; /* Abstand nach oben zur Kategorie-Gruppe */
-    margin-bottom: 15px;
-    display: block;
+    border-bottom-color: #e2e8f0;
+    margin-top: 25px;
 }
 
-.filter-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
+.filter-pills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin-bottom: 15px; }
+.filter-pills li { padding: 5px 12px; background: white; border: 1px solid var(--border); border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; }
+.filter-pills li.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-.filter-pills li {
-    padding: 6px 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    transition: all 0.2s ease;
-}
+.active-filters-box { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; min-height: 20px; }
+.active-pill { background: #f1f5f9; border: 1px solid var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; display: flex; align-items: center; gap: 5px; }
 
-.filter-pills li:hover { background: var(--pill-bg); }
+.reset-btn { width: 100%; padding: 10px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.85rem; }
 
-.filter-pills li.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-}
-
-/* Aktive Filter Box */
-.active-filters-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
-    min-height: 30px;
-}
-
-.active-pill {
-    background: #f1f5f9;
-    border: 1px solid var(--primary);
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.remove-filter {
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.reset-btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s;
-}
-
-.reset-btn:hover { background: var(--primary-dark); }
-
-/* GRID SYSTEM - Volle Breite und maximale Spaltenanzahl */
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 20px; 
-    flex-grow: 1;
-}
-
-/* Card Design */
-.file-card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border: 1px solid #f1f5f9;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-main-info { 
-    display: flex; 
-    justify-content: space-between; 
-    gap: 15px; 
-    margin-bottom: 15px;
-}
-
-.card-text-side { flex: 1; }
-
-.card-preview img { 
-    width: 75px; 
-    height: 75px; 
-    object-fit: cover; 
-    border-radius: 8px; 
-    background: #eee; 
-}
-
-.theme-label { 
-    background: #e0f2fe; 
-    color: #0369a1; 
-    padding: 2px 8px; 
-    border-radius: 4px; 
-    font-size: 0.75rem; 
-    margin-right: 5px;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-.mini-tag { color: var(--light-text); font-size: 0.8rem; }
-
-.action-buttons { 
-    display: flex; 
-    gap: 10px; 
-    margin-top: auto; 
-}
-
-.preview-btn, .download-btn { 
-    flex: 1; 
-    text-align: center; 
-    padding: 10px 5px; 
-    border-radius: 8px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    font-size: 0.85rem;
-}
-
+/* Grid & Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; flex-grow: 1; }
+.file-card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; display: flex; flex-direction: column; }
+.card-main-info { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.card-preview img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; background: #eee; }
+.theme-label { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; margin-right: 4px; display: inline-block; }
+.mini-tag { color: var(--light-text); font-size: 0.75rem; }
+.action-buttons { display: flex; gap: 8px; margin-top: auto; }
+.preview-btn, .download-btn { flex: 1; text-align: center; padding: 8px 4px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.8rem; }
 .preview-btn { border: 1px solid var(--primary); color: var(--primary); }
 .download-btn { background: var(--primary); color: white; }
 
+/* KOMPAKTER FOOTER */
 .site-footer {
     text-align: center;
-    margin-top: 60px;
-    padding: 30px 20px;
+    margin-top: 40px;
+    padding: 15px 10px; /* Reduziertes Padding */
     border-top: 1px solid var(--border);
     color: var(--light-text);
 }
 
-/* Responsive Anpassungen */
+.site-footer .disclaimer {
+    font-size: 0.65rem; /* Sehr klein */
+    line-height: 1.3;
+    max-width: 600px;
+    margin: 0 auto 8px auto;
+}
+
+.footer-bottom { 
+    font-size: 0.75rem; 
+}
+
+.footer-bottom a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* Responsive */
 @media (min-width: 768px) {
-    .layout { 
-        flex-direction: row; 
-        align-items: flex-start; 
-    }
-    .sidebar { 
-        width: 300px; /* Etwas breiter für die Filter */
-        flex-shrink: 0;
-        position: sticky; 
-        top: 20px; 
-    }
+    .layout { flex-direction: row; align-items: flex-start; }
+    .sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 20px; }
 }
 
 @media (max-width: 600px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
+    .grid { grid-template-columns: 1fr; }
 }
