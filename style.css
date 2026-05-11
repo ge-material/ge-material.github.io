@@ -116,8 +116,36 @@ header { text-align: center; margin-bottom: 30px; }
 .preview-btn { border: 1px solid var(--primary); color: var(--primary); }
 .download-btn { background: var(--primary); color: white; }
 
-footer { text-align: center; margin-top: 50px; padding: 20px; color: var(--light-text); }
-.disclaimer { font-size: 0.7rem; margin-top: 5px; }
+/* Dezenterer Footer */
+.site-footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--light-text);
+}
+
+.site-footer .disclaimer {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 0 auto 10px auto;
+}
+
+.footer-bottom {
+    font-size: 0.8rem;
+}
+
+.footer-bottom a {
+    color: var(--light-text);
+    text-decoration: underline;
+    margin: 0 5px;
+    transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary);
+}
 
 @media (min-width: 768px) {
     .layout { flex-direction: row; }
