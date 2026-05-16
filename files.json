@@ -30,33 +30,63 @@
     "kategorien": ["Ausmalbild"]
   },
   {
+    "name": "Ausmalbild",
+    "url": "files/0003w.png",
+    "themen": ["Geduld"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
     "name": "Ausmalbild: zum Fertigmalen",
     "url": "files/0004.png",
     "themen": ["Geduld"],
     "kategorien": ["Ausmalbild"]
   },
   {
+    "name": "Ausmalbild",
+    "url": "files/0004w.png",
+    "themen": ["Geduld"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
     "name": "Ausmalbild: zum Fertigmalen",
     "url": "files/0005.png",
-    "themen": ["Aufmerksam sein", "Hilfsbereitschaft"],
+    "themen": ["Aufmerksam sein", "Freundlichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0005w.png",
+    "themen": ["Aufmerksam sein", "Freundlichkeit"],
     "kategorien": ["Ausmalbild"]
   },
   {
     "name": "Ausmalbild: zum Fertigmalen",
     "url": "files/0006.png",
-    "themen": ["Aufmerksam sein", "Hilfsbereitschaft"],
+    "themen": ["Aufmerksam sein", "Dienst"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0006w.png",
+    "themen": ["Aufmerksam sein", "Dienst"],
     "kategorien": ["Ausmalbild"]
   },
   {
     "name": "Ausmalbild: zum Fertigmalen",
     "url": "files/0007.png",
-    "themen": ["Aufmerksam sein", "Hilfsbereitschaft"],
+    "themen": ["Aufmerksam sein"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0007w.png",
+    "themen": ["Aufmerksam sein"],
     "kategorien": ["Ausmalbild"]
   },
   {
     "name": "Ausmalbild: zum Fertigmalen",
     "url": "files/0008.png",
-    "themen": ["Aufmerksam sein", "Hilfsbereitschaft"],
+    "themen": ["Aufmerksam sein", "Dienst"],
     "kategorien": ["Ausmalbild"]
   },
   {
@@ -93,6 +123,378 @@
     "name": "Ausmalbild: zum Fertigmalen",
     "url": "files/0014.png",
     "themen": ["Acht geben"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0015.png",
+    "themen": ["Hilfsbereitschaft"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0015w.png",
+    "themen": ["Hilfsbereitschaft"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0016.png",
+    "themen": ["Hilfsbereitschaft","Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0016w.png",
+    "themen": ["Hilfsbereitschaft","Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0017.png",
+    "themen": ["Hilfsbereitschaft"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0017w.png",
+    "themen": ["Hilfsbereitschaft"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0018.png",
+    "themen": ["Hilfsbereitschaft","Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0018w.png",
+    "themen": ["Hilfsbereitschaft","Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0019.png",
+    "themen": ["Dienst"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0020.png",
+    "themen": ["Dienst"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0021.png",
+    "themen": ["Dienst"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0022.png",
+    "themen": ["Freigebigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0023.png",
+    "themen": ["Freigebigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0024.png",
+    "themen": ["Freigebigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0025.png",
+    "themen": ["Freigebigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0026.png",
+    "themen": ["Freundlichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0026w.png",
+    "themen": ["Freundlichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0027.png",
+    "themen": ["Freundlichkeit", "Freigebigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0027w.png",
+    "themen": ["Freundlichkeit", "Freigebigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0028.png",
+    "themen": ["Freundlichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0028w.png",
+    "themen": ["Freundlichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0029.png",
+    "themen": ["Fürsorglichkeit","Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0029w.png",
+    "themen": ["Fürsorglichkeit","Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0030.png",
+    "themen": ["Fürsorglichkeit","Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0030w.png",
+    "themen": ["Fürsorglichkeit","Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0031.png",
+    "themen": ["Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0031w.png",
+    "themen": ["Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0032.png",
+    "themen": ["Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0032w.png",
+    "themen": ["Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0033.png",
+    "themen": ["Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0033w.png",
+    "themen": ["Fürsorglichkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0034.png",
+    "themen": ["Gebet"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0035.png",
+    "themen": ["Gebet"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0036.png",
+    "themen": ["Gebet"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0037.png",
+    "themen": ["Gebet"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0038.png",
+    "themen": ["Gebet"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0039.png",
+    "themen": ["Gebet"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0040.png",
+    "themen": ["Gottes Barmherzigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0040w.png",
+    "themen": ["Gottes Barmherzigkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0041.png",
+    "themen": ["Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0041w.png",
+    "themen": ["Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0042.png",
+    "themen": ["Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0042w.png",
+    "themen": ["Mitgefühl"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0043.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0043w.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0044.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0044w.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0045.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0045w.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0046.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0046w.png",
+    "themen": ["Mut"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0047.png",
+    "themen": ["Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0047w.png",
+    "themen": ["Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0048.png",
+    "themen": ["Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0048w.png",
+    "themen": ["Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild: zum Fertigmalen",
+    "url": "files/0049.png",
+    "themen": ["Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0049w.png",
+    "themen": ["Sauberkeit"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0050w.png",
+    "themen": ["Teilen"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0051w.png",
+    "themen": ["Teilen"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0052w.png",
+    "themen": ["Friede"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0053w.png",
+    "themen": ["Friede"],
+    "kategorien": ["Ausmalbild"]
+  },
+  {
+    "name": "Ausmalbild",
+    "url": "files/0054w.png",
+    "themen": ["Friede"],
     "kategorien": ["Ausmalbild"]
   }
 ]
